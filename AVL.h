@@ -32,11 +32,6 @@ class BinarySearchTree
 
         //! Вывод в консоль поддерева, где текущий узел - корень
         void output_node_tree() const;
-        //! Вставить новый узел в поддерево, где текущий узел - корень
-        void insert(const Key &key, const Value &value);
-        //! Удалить узел из поддерева, где текущий узел - корень
-        void erase(const Key &key);
-        static Node *EraseAdvance(Node *target);
         std::pair<Key, Value> keyValuePair; //!< Пара ключ - значение
         Node *parent = nullptr; //!< родительский узел
         Node *left = nullptr;   //!< левый потомок
@@ -162,4 +157,7 @@ private:
     static Node *rightRotate(Node *node);
     static Node *leftRotate(Node *node);
     static Node *balance(Node *node);
+    static Node *insertNode(Node *node, Node *parent, const Key &key, const Value &value);
+    static Node *eraseNode(Node *node, const Key &key);
+    static Node *eraseMin(Node *node);
 };
